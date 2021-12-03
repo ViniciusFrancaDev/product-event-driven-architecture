@@ -1,10 +1,14 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Admin from '../pages/admin/Admin.vue'
+import Products from '../pages/admin/Products.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    component: Admin
+    component: Admin,
+    children: [
+      {path: '/', component: Products}
+    ]
   }
 ]
 
