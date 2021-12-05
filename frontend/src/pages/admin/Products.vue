@@ -36,21 +36,21 @@ export default {
   setup() {
     const products = ref([]);
 
-  onMounted(async () => {
-    const response = await fetch('http://localhost:8000/api/products');
+    onMounted(async () => {
+      const response = await fetch('http://localhost:8000/api/products');
 
-    products.value = await response.json();
-  });
+      products.value = await response.json();
+    });
 
-  const deleteProduct = async (id: number) => {
-    if (confirm('Are you sure you want to delete this product?')) {
-      await fetch(`http://localhost:8000/api/products/${id}`, {
-        method: 'DELETE'
-      });
+    const deleteProduct = async (id: number) => {
+      if (confirm('Are you sure you want to delete this product?')) {
+        await fetch(`http://localhost:8000/api/products/${id}`, {
+          method: 'DELETE'
+        });
 
-      products.value = products.value.filter((p: Product) => p.id !== id);
+        products.value = products.value.filter((p: Product) => p.id !== id);
+      }
     }
-  }
 
     return {
       products,
