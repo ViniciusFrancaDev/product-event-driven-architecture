@@ -24,6 +24,7 @@
         <td>{{ product.likes }}</td>
         <td>
           <div class="btn-group mr-2">
+            <router-link :to="`/admin/products/${product.id}/edit`" class="btn btn-sm btn-outline-secondary">Edit</router-link>
             <a href="#" class="btn btn-sm btn-outline-secondary" @click="deleteProduct(product.id)">Delete</a>
           </div>
         </td>
